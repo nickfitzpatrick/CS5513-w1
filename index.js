@@ -5,6 +5,14 @@ let myserver = myhttp.createServer(
   function(myrequest, myresponse){
     console.log(myrequest.url);
 
+    let myresponsetext;
+    if (myrequest.url === "/hey"){
+      myresponsetext = "Hello to you from beyond the wifi!";
+    }
+    else {
+      myresponsetext = "What, no hello?";
+    }
+
     myresponse.writeHead(
       200, 
       {
@@ -12,7 +20,7 @@ let myserver = myhttp.createServer(
       }
     );
     myresponse.end(
-      "Hello from beyond the wifi!"
+      myresponsetext
     );
   }
 );
